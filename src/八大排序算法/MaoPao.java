@@ -1,4 +1,7 @@
 package 八大排序算法;
+
+import java.util.ArrayList;
+
 //冒泡排序
 public class MaoPao {
     public static void main(String[] args) {
@@ -15,5 +18,6 @@ public class MaoPao {
         for (int num : s) {
             System.out.println(num);
         }
+        ArrayList sss=new ArrayList();
     }
 }

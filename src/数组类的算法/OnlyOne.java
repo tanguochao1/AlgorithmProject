@@ -27,7 +27,7 @@ public class OnlyOne {
         //用异或来解决这个问题，因为相同的数字异或一定是0，因此重复数字异或后都是0了，0再和一个不为0的数字异或就是它本身了。
         int res = 0;
         for (int i = 0; i < nums.length; i++) {
-            res ^= nums[i];
+            res ^=nums[i];
         }
         return res;
     }
