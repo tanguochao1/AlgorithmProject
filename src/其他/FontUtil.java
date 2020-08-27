@@ -4,6 +4,7 @@ package 其他;
 import sun.font.FontDesignMetrics;
 
 import java.awt.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import static java.awt.Font.PLAIN;
 
@@ -88,6 +89,7 @@ public class FontUtil {
         if (null == font) {
             font = getDefaultFont();
         }
+        CopyOnWriteArrayList s=new CopyOnWriteArrayList();
         FontDesignMetrics metrics = FontDesignMetrics.getMetrics(font);
         int width = 0;
         for (int i = 0; i < str.length(); i++) {

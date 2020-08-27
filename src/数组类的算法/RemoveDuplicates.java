@@ -1,5 +1,7 @@
 package 数组类的算法;
 
+import java.util.Arrays;
+
 public class RemoveDuplicates {
     /*
     * 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
@@ -15,16 +17,16 @@ public class RemoveDuplicates {
     * */
     public static void main(String[] args) {
         int[] nums = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-        int s = removeElement(nums);
-        System.out.println(s);
+        System.out.println(Arrays.toString(removeElement(nums)));
     }
 
-    public static int removeElement(int[] nums) {
+    public static int [] removeElement(int[] nums) {
         // 使用双指针
         if (nums == null || nums.length == 1) {
-            return nums.length;
+            return nums;
         }
         int i = 0, j = 1;
+        //第一个和第二个数做比较，如果相同赋值两个指针同时后移，后一个值给前一个
         while (j < nums.length) {
             if (nums[i] == nums[j]) {
                 j++;
@@ -34,6 +36,6 @@ public class RemoveDuplicates {
                 j++;
             }
         }
-        return i + 1;
+        return nums;
     }
 }

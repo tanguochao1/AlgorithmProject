@@ -4,6 +4,11 @@ package 链表;/*
  *@date
  */
 
+import 树.TreeNode;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DeleteNode {
     /*在知道同类数据的数量范围且不超过静态内存容许值时用数组，编程简单快速。
     当你处理的同类数据的数据量未知时，或者数据量超过静态数组定义范围时，就要用链表。
@@ -25,22 +30,17 @@ public class DeleteNode {
         for (int i = 0; i < s.length; i++) {
             listNode.add(s[i]);
         }
-        deleteNode(listNode);
-        System.out.println(listNode.next);
-        System.out.println(listNode.val);
-        System.out.println(listNode.next.val);
-        System.out.println(listNode.next.next.val);
-        System.out.println(listNode.next.next.next.val);
-
-//        for() {
-//            System.out.println(deleteNode(listNode).val);
-//        }
+        deleteNode(listNode, 2).print();
     }
 
-    public static ListNode deleteNode(ListNode node) {
+    public static ListNode deleteNode(ListNode node, int n) {
 //        将原来的下一个节点给废掉。
+        if (n == 0) {
+            return node;
+        }
         node.val = node.next.val;
         node.next = node.next.next;
         return node;
     }
+
 }
