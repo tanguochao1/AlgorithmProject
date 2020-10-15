@@ -7,11 +7,32 @@ package 其他;/*
 import sun.util.resources.CalendarData;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
 
 public class StringTest {
+    String name;
+
+    public StringTest(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        StringTest stringTest = (StringTest) o;
+        return Objects.equals(name, stringTest.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+
     public static void main(String[] args) {
         String s = "Aug 15, 2020 12:00:00 AM";
         try {
@@ -23,9 +44,15 @@ public class StringTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        //重写hashcode和equals方法
+//        LinkedList
+        Map<StringTest, String> map = new HashMap<>(4);
+        map.put(new StringTest("hello"), "hello");
+        String hello = map.get(new StringTest("hello"));
+        System.out.println(hello);
     }
-    public static String getGapTime ( long time){
+
+    public static String getGapTime(long time) {
         long hours = time / (1000 * 60 * 60);
         long minutes = (time - hours * (1000 * 60 * 60)) / (1000 * 60);
         String diffTime = "";
